@@ -31,8 +31,8 @@
 ```mermaid
 flowchart TD
     subgraph SENSOR["센서 레이어"]
-        TC["탑 카메라\n(RGB, 차량 상단)"]
-        WC["리스트 카메라\n(D405, 그리퍼 손목)"]
+        TC["탑 카메라<br\>(RGB, 차량 상단)"]
+        WC["리스트 카메라<br\>(D405, 그리퍼 손목)"]
     end
 
     subgraph PERCEPTION["인식 레이어"]
