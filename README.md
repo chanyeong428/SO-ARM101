@@ -51,9 +51,8 @@ flowchart TD
 
     subgraph ROBOT["실행 레이어"]
         TB["TurtleBot3 Waffle\n자율주행"]
-        MP["MoveIt2\n모션 플래닝"]
         ARM["SO-ARM101\n로봇팔"]
-        ACT["LeRobot ACT\n복잡한 파지 보조"]
+        LR["LeRobot\n서보 제어"]
     end
 
     subgraph OUTPUT["결과"]
@@ -73,13 +72,12 @@ flowchart TD
     TF -->|"X,Y,Z (로봇 좌표계)"| IK
 
     GD -->|"집기 목표"| IK
-    IK -->|"관절 각도 θ1~θ6"| MP
-    GR -->|"그리퍼 각도"| MP
-    MP -->|"궤적 명령"| ARM
-    ACT -.->|"복잡한 형태 보조"| ARM
+    IK -->|"관절 각도 θ1~θ6"| LR
+    GR -->|"그리퍼 각도"| LR
+    LR -->|"서보 제어"| ARM
     ARM -->|"집기 완료"| NAV
     NAV -->|"쓰레기통으로 이동"| TB
-    TB -->|"도착"| MP
+    TB -->|"도착"| IK
     ARM -->|"투입"| BIN
 ```
 
