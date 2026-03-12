@@ -90,7 +90,6 @@ def compute_ik(target_xyz: list, current_angles: np.ndarray) -> np.ndarray:
         target_position=target_xyz,
         initial_position=current_angles,
         max_iter=1000,
-        tolerance=1e-4,
     )
 
 
